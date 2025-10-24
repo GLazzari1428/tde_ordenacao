@@ -3,19 +3,22 @@ public class BucketSort {
     static class Estatisticas {
         int comparacoes;
         int movimentacoes;
+        int iteracoes;
         
-        Estatisticas(int comp, int mov) {
+        Estatisticas(int comp, int mov, int iter) {
             this.comparacoes = comp;
             this.movimentacoes = mov;
+            this.iteracoes = iter;
         }
     }
     
     public static Estatisticas ordenar(int[] vetor, int tamanho) {
         int comp = 0;
         int mov = 0;
+        int iter = 0;
         
         if (tamanho == 0) {
-            return new Estatisticas(comp, mov);
+            return new Estatisticas(comp, mov, iter);
         }
         
         // encontrar min e max
@@ -27,7 +30,7 @@ public class BucketSort {
         }
         
         if (max == min) {
-            return new Estatisticas(comp, mov);
+            return new Estatisticas(comp, mov, iter);
         }
         
         int M = 10;
@@ -40,6 +43,7 @@ public class BucketSort {
         
         // distribuir elementos nos buckets
         for (int i = 0; i < tamanho; i++) {
+            iter++;
             int bucketIndex = (vetor[i] - min) / div;
             if (bucketIndex < 0) bucketIndex = 0;
             else if (bucketIndex >= M) bucketIndex = M - 1;
@@ -55,6 +59,7 @@ public class BucketSort {
             if (bucketSizes[i] > 0) {
                 // insertion sort no bucket
                 for (int j = 1; j < bucketSizes[i]; j++) {
+                    iter++;
                     int key = buckets[i][j];
                     int k = j - 1;
                     
@@ -81,6 +86,6 @@ public class BucketSort {
             }
         }
         
-        return new Estatisticas(comp, mov);
+        return new Estatisticas(comp, mov, iter);
     }
 }

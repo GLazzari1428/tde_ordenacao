@@ -3,10 +3,12 @@ public class CombSort {
     static class Estatisticas {
         int comparacoes;
         int movimentacoes;
+        int iteracoes;
         
-        Estatisticas(int comp, int mov) {
+        Estatisticas(int comp, int mov, int iter) {
             this.comparacoes = comp;
             this.movimentacoes = mov;
+            this.iteracoes = iter;
         }
     }
     
@@ -18,6 +20,7 @@ public class CombSort {
         int aux;
         int comp = 0;
         int mov = 0;
+        int iter = 0;
         
         while (sorted == 0) {
             gap = (int) Math.floor(gap / 1.3);
@@ -27,6 +30,7 @@ public class CombSort {
             }
             
             for (i = 0; i < n - gap; i++) {
+                iter++;
                 sm = gap + i;
                 comp++;
                 if (A[i] > A[sm]) {
@@ -38,6 +42,6 @@ public class CombSort {
                 }
             }
         }
-        return new Estatisticas(comp, mov);
+        return new Estatisticas(comp, mov, iter);
     }
 }

@@ -3,10 +3,12 @@ public class CocktailSort {
     static class Estatisticas {
         int comparacoes;
         int movimentacoes;
+        int iteracoes;
         
-        Estatisticas(int comp, int mov) {
+        Estatisticas(int comp, int mov, int iter) {
             this.comparacoes = comp;
             this.movimentacoes = mov;
+            this.iteracoes = iter;
         }
     }
     
@@ -17,11 +19,13 @@ public class CocktailSort {
         int temp;
         int comp = 0;
         int mov = 0;
+        int iter = 0;
         
         while (trocou) {
             trocou = false;
             
             for (int i = inicio; i < fim; i++) {
+                iter++;
                 comp++;
                 if (vetor[i] > vetor[i + 1]) {
                     temp = vetor[i];
@@ -40,6 +44,7 @@ public class CocktailSort {
             fim--;
             
             for (int i = fim; i > inicio; i--) {
+                iter++;
                 comp++;
                 if (vetor[i] < vetor[i - 1]) {
                     temp = vetor[i];
@@ -52,6 +57,6 @@ public class CocktailSort {
             
             inicio++;
         }
-        return new Estatisticas(comp, mov);
+        return new Estatisticas(comp, mov, iter);
     }
 }
