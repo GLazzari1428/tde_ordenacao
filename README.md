@@ -1,21 +1,21 @@
 # Análise Comparativa de Algoritmos de Ordenação
 
 ## Informações Acadêmicas
-Aluno: [Gustavo Tasca Lazzari](https://github.com/GLazzari1428)
-Turma: U
-Período: 4º
-Disciplina:
-Professor:
+- **Aluno:** [Gustavo Tasca Lazzari](https://github.com/GLazzari1428)
+- **Turma:** U
+- **Período:** 4º
+- **Disciplina:** Resolução de Problemas Estruturados em Computação
+- **Professor:** Andrey Cabral Meira
 
 ## 1. Descrição do Projeto
 
 Implementação e comparação de 6 algoritmos de ordenação em Java:
-- **Comb Sort**
-- **Gnome Sort**
-- **Bucket Sort**
-- **Bubble Sort** (com flag de parada)
-- **Selection Sort**
-- **Cocktail Sort**
+- Comb Sort
+- Gnome Sort
+- Bucket Sort
+- Bubble Sort com flag de parada
+- Selection Sort
+- Cocktail Sort
 
 ---
 
